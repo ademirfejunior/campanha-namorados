@@ -45,14 +45,14 @@ body>*:not(#particles){position:relative;z-index:1}
   border-bottom:1px solid var(--border);position:sticky;top:0;
   background:rgba(13,10,14,0.96);backdrop-filter:blur(10px);z-index:100}
 .logo{display:flex;align-items:center;gap:0.7rem}
-.logo-hearts{font-size:18px;animation:heartbeat 2s ease-in-out infinite;display:inline-block}
+.logo-hearts{font-size:18px;animation:heartbeat 4s ease-in-out infinite;display:inline-block}
 .logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;
   letter-spacing:2px;text-transform:uppercase;color:var(--white)}
 .logo-text em{color:var(--rose-lt);font-style:normal}
 .nav-cta{background:var(--rose);color:white;font-family:'Barlow Condensed',sans-serif;
   font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;
   padding:0.55rem 1.3rem;border:none;cursor:pointer;
-  animation:heartbeat 2.2s ease-in-out infinite;transition:transform .15s;text-decoration:none;display:inline-block}
+  animation:heartbeat 4.5s ease-in-out infinite;transition:transform .15s;text-decoration:none;display:inline-block}
 .nav-cta:hover{animation:none;transform:scale(1.04)}
 
 /* ── HERO ── */
@@ -62,7 +62,7 @@ body>*:not(#particles){position:relative;z-index:1}
 .eyebrow{display:inline-flex;align-items:center;gap:0.5rem;font-size:10px;letter-spacing:3px;
   text-transform:uppercase;color:var(--rose-lt);font-family:'Barlow Condensed',sans-serif;
   font-weight:700;margin-bottom:1.2rem}
-.eyebrow::before{content:'♥';font-size:12px;animation:heartbeat 1.6s ease-in-out infinite}
+.eyebrow::before{content:'♥';font-size:12px;animation:heartbeat 4s ease-in-out infinite}
 .hero h1{font-family:'Playfair Display',serif;font-weight:900;
   font-size:clamp(2.8rem,7vw,6rem);line-height:1;letter-spacing:-1px;margin-bottom:1.8rem}
 .hero h1 em{color:var(--rose-lt);font-style:italic;display:block}
@@ -79,20 +79,20 @@ body>*:not(#particles){position:relative;z-index:1}
 /* ── COUPLE TRACK ── */
 .couple-track{position:relative;height:70px;overflow:visible;background:transparent;border-bottom:3px solid var(--rose);z-index:2}
 .runner-duo{position:absolute;bottom:0;left:-120px;display:flex;align-items:flex-end;gap:6px;
-  animation:duo-across 8s linear infinite, duo-bob 0.32s ease-in-out infinite alternate}
+  animation:duo-across 10s linear infinite, duo-bob 0.45s ease-in-out infinite alternate}
 @keyframes duo-across{0%{left:-120px}100%{left:calc(100% + 120px)}}
 @keyframes duo-bob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
 
 /* figura 1 */
-.fig1 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.3s ease-in-out infinite alternate}
-.fig1 .rleg-back {transform-origin:18px 38px;animation:rlb1 0.3s ease-in-out infinite alternate}
-.fig1 .rarm-front{transform-origin:32px 15px;animation:raf1 0.3s ease-in-out infinite alternate}
-.fig1 .rarm-back {transform-origin:32px 15px;animation:rab1 0.3s ease-in-out infinite alternate}
-/* figura 2 — fase oposta para parecer que correm sincronizados mas diferentes */
-.fig2 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.3s ease-in-out infinite alternate-reverse}
-.fig2 .rleg-back {transform-origin:18px 38px;animation:rlb1 0.3s ease-in-out infinite alternate-reverse}
-.fig2 .rarm-front{transform-origin:32px 15px;animation:raf1 0.3s ease-in-out infinite alternate-reverse}
-.fig2 .rarm-back {transform-origin:32px 15px;animation:rab1 0.3s ease-in-out infinite alternate-reverse}
+.fig1 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.45s ease-in-out infinite alternate}
+.fig1 .rleg-back {transform-origin:18px 38px;animation:rlb1 0.45s ease-in-out infinite alternate}
+.fig1 .rarm-front{transform-origin:32px 15px;animation:raf1 0.45s ease-in-out infinite alternate}
+.fig1 .rarm-back {transform-origin:32px 15px;animation:rab1 0.45s ease-in-out infinite alternate}
+/* figura 2 — fase oposta */
+.fig2 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.45s ease-in-out infinite alternate-reverse}
+.fig2 .rleg-back {transform-origin:18px 38px;animation:rlb1 0.45s ease-in-out infinite alternate-reverse}
+.fig2 .rarm-front{transform-origin:32px 15px;animation:raf1 0.45s ease-in-out infinite alternate-reverse}
+.fig2 .rarm-back {transform-origin:32px 15px;animation:rab1 0.45s ease-in-out infinite alternate-reverse}
 
 @keyframes rlf1{from{transform:rotate(-28deg)}to{transform:rotate(26deg)}}
 @keyframes rlb1{from{transform:rotate(26deg)} to{transform:rotate(-28deg)}}
@@ -114,17 +114,17 @@ body>*:not(#particles){position:relative;z-index:1}
 .section-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;
   letter-spacing:3px;text-transform:uppercase;color:var(--rose-lt);margin-bottom:0.5rem;
   display:inline-flex;align-items:center;gap:0.5rem;
-  animation:float 3.5s ease-in-out infinite}
+  animation:float 6s ease-in-out infinite}
 .section-tag::before{content:'♥';font-size:11px}
 .section-title{font-family:'Playfair Display',serif;font-weight:700;
   font-size:clamp(1.8rem,4vw,2.8rem);line-height:1;margin-bottom:1.8rem;
-  animation:float 4s ease-in-out infinite 0.3s}
+  animation:float 7s ease-in-out infinite 0.5s}
 
 /* ── PILLARS ── */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
 .pillar{background:var(--card);padding:1.75rem;transition:background .3s,transform .3s}
 .pillar:hover{background:var(--card2);transform:translateY(-4px)}
-.pillar-icon{font-size:2rem;margin-bottom:0.75rem;animation:heartbeat 2.5s ease-in-out infinite}
+.pillar-icon{font-size:2rem;margin-bottom:0.75rem;animation:float 5s ease-in-out infinite}
 .pillar h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;
   text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;color:var(--rose-lt)}
 .pillar ul{list-style:none}
@@ -141,7 +141,7 @@ body>*:not(#particles){position:relative;z-index:1}
   border-bottom:1px solid var(--border);color:var(--rose-lt)}
 .item-row{display:flex;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid #160F12;align-items:flex-start}
 .item-row:last-child{border-bottom:none}
-.item-dot{font-size:10px;flex-shrink:0;margin-top:3px;animation:heartbeat 1.8s ease-in-out infinite}
+.item-dot{font-size:10px;flex-shrink:0;margin-top:3px;animation:heartbeat 5s ease-in-out infinite}
 .item-text strong{display:block;font-size:0.88rem;color:var(--white);font-weight:500;margin-bottom:0.1rem}
 .item-text span{font-size:0.8rem;color:#706070;font-weight:300;line-height:1.45}
 
@@ -149,7 +149,7 @@ body>*:not(#particles){position:relative;z-index:1}
 .bonuses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:1.5rem}
 .bonus{background:var(--card);padding:1.4rem;transition:background .25s,transform .25s,box-shadow .25s;cursor:default}
 .bonus:hover{background:var(--card2);transform:translateY(-5px);box-shadow:0 10px 28px rgba(192,24,76,0.18)}
-.bonus-icon{font-size:1.6rem;margin-bottom:0.5rem;display:block;animation:heartbeat 2.8s ease-in-out infinite}
+.bonus-icon{font-size:1.6rem;margin-bottom:0.5rem;display:block;animation:float 5.5s ease-in-out infinite}
 .bonus-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--rose-lt);
   font-family:'Barlow Condensed',sans-serif;font-weight:700;margin-bottom:0.4rem}
 .bonus h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;
@@ -164,7 +164,7 @@ body>*:not(#particles){position:relative;z-index:1}
   animation:float 5s ease-in-out infinite}
 .testi-strip blockquote cite{display:block;font-family:'Barlow',sans-serif;font-style:normal;
   font-size:0.78rem;color:var(--muted);margin-top:0.5rem;letter-spacing:1px}
-.hearts-big{font-size:3rem;animation:heartbeat 1.5s ease-in-out infinite;flex-shrink:0}
+.hearts-big{font-size:3rem;animation:heartbeat 4s ease-in-out infinite;flex-shrink:0}
 
 /* ── CTA ── */
 .cta-section{padding:4rem 2rem;background:var(--rose);text-align:center;position:relative;overflow:hidden}
@@ -178,7 +178,7 @@ body>*:not(#particles){position:relative;z-index:1}
 .cta-section .eyebrow{color:rgba(255,255,255,0.7);margin-bottom:1rem;justify-content:center}
 .btn-primary,.btn-white{position:relative;overflow:hidden;cursor:pointer;border:none;
   font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  text-decoration:none;display:inline-block;animation:heartbeat 2s ease-in-out infinite;transition:transform .15s}
+  text-decoration:none;display:inline-block;animation:heartbeat 5s ease-in-out infinite;transition:transform .15s}
 .btn-primary{background:var(--rose);color:white;font-size:13px;padding:1rem 2rem;width:100%}
 .btn-primary:hover,.btn-white:hover{animation:none;transform:scale(1.03)}
 .btn-white{background:white;color:var(--rose);font-size:15px;padding:1.1rem 2.8rem}
@@ -200,12 +200,12 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
 /* ── KEYFRAMES ── */
 @keyframes heartbeat{
   0%,100%{transform:scale(1)}
-  14%{transform:scale(1.12)}
+  14%{transform:scale(1.05)}
   28%{transform:scale(1)}
-  42%{transform:scale(1.07)}
+  42%{transform:scale(1.03)}
   56%{transform:scale(1)}
 }
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
 @keyframes ripple-out{to{transform:scale(4);opacity:0}}
 
