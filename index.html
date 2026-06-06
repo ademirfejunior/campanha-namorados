@@ -188,6 +188,42 @@ body>*:not(#particles){position:relative;z-index:1}
   .timeline-line{width:1px;height:24px;margin:0 17px}
 }
 
+/* ── DESCONTO BADGE ── */
+.discount-badge{display:inline-flex;align-items:center;gap:0.8rem;
+  background:linear-gradient(135deg,#1A0810,#2A0F1A);border:1px solid var(--rose);
+  padding:0.7rem 1.2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.discount-badge::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(192,24,76,0.08),transparent);
+  animation:shimmer 3s ease-in-out infinite}
+.discount-pct{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.2rem;
+  color:var(--rose-lt);line-height:1;animation:heartbeat 4s ease-in-out infinite}
+.discount-info{display:flex;flex-direction:column}
+.discount-info strong{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.95rem;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white)}
+.discount-info span{font-size:0.78rem;color:var(--muted);font-weight:300}
+
+/* faixa desconto */
+.desconto-strip{padding:2rem 2rem;background:linear-gradient(135deg,#1A0810 0%,#2D0F1E 50%,#1A0810 100%);
+  border-top:1px solid var(--rose);border-bottom:1px solid var(--rose);
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.desconto-left{display:flex;align-items:center;gap:1.5rem}
+.desconto-pct-big{font-family:'Barlow Condensed',sans-serif;font-weight:900;
+  font-size:clamp(3rem,8vw,5.5rem);color:var(--rose-lt);line-height:1;
+  animation:heartbeat 4s ease-in-out infinite}
+.desconto-copy h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;
+  font-size:clamp(1.2rem,3vw,1.8rem);text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:0.3rem}
+.desconto-copy p{font-size:0.88rem;color:#B09098;font-weight:300;line-height:1.5;max-width:420px}
+.desconto-right a{background:var(--rose);color:white;font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;
+  padding:1rem 2rem;text-decoration:none;display:inline-block;
+  animation:heartbeat 4s ease-in-out infinite;transition:transform .15s;white-space:nowrap}
+.desconto-right a:hover{animation:none;transform:scale(1.03)}
+
+@media(max-width:650px){
+  .desconto-strip{flex-direction:column;text-align:center}
+  .desconto-left{flex-direction:column;align-items:center}
+}
+
 /* ── TESTIMONIAL STRIP ── */
 .testi-strip{padding:2rem;background:var(--card);border-bottom:1px solid var(--border);
   display:flex;align-items:center;gap:2rem;overflow:hidden}
@@ -265,6 +301,13 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
 <!-- HERO -->
 <section class="hero" data-reveal>
   <div class="eyebrow">Consultoria de nutrição e bem-estar para casais</div>
+  <div class="discount-badge">
+    <div class="discount-pct">40%</div>
+    <div class="discount-info">
+      <strong>de desconto na 2ª vaga do casal</strong>
+      <span>Oferta exclusiva de Dia dos Namorados · Válida por tempo limitado</span>
+    </div>
+  </div>
   <h1>
     <span>Se cuidar juntos</span>
     <em>é o maior</em>
@@ -504,11 +547,25 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
 
 </section>
 
+<!-- FAIXA DESCONTO -->
+<div class="desconto-strip" data-reveal>
+  <div class="desconto-left">
+    <div class="desconto-pct-big">40%</div>
+    <div class="desconto-copy">
+      <h3>A segunda vaga do casal<br>com 40% de desconto</h3>
+      <p>Um de vocês contrata pelo valor cheio — o outro entra com 40% off. Porque cuidar juntos não deveria custar o dobro. Essa é a condição especial de Dia dos Namorados, válida por tempo limitado.</p>
+    </div>
+  </div>
+  <div class="desconto-right">
+    <a href="https://wa.me/5511916963672?text=Quero%20aproveitar%20a%20condi%C3%A7%C3%A3o%20de%20acompanhamento%20de%20Dia%20dos%20Namorados" target="_blank">♥ Quero aproveitar</a>
+  </div>
+</div>
+
 <!-- CTA FINAL -->
 <section class="cta-section" data-reveal>
   <div class="eyebrow">Oferta especial · Dia dos Namorados</div>
   <h2>Cuidem de vocês.<br><em style="font-style:italic">Juntos.</em></h2>
-  <p>Uma consultoria duo completa — nutrição, hábitos e acompanhamento real para os dois evoluírem lado a lado.</p>
+  <p>Uma consultoria duo completa — nutrição, hábitos e acompanhamento real para os dois evoluírem lado a lado. <strong style="color:white">A 2ª vaga entra com 40% de desconto.</strong></p>
   <a class="btn-white" href="https://wa.me/5511916963672?text=Quero%20aproveitar%20a%20condi%C3%A7%C3%A3o%20de%20acompanhamento%20de%20Dia%20dos%20Namorados" target="_blank">
     <span>♥</span> Quero começar com meu par
   </a>
