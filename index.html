@@ -156,6 +156,38 @@ body>*:not(#particles){position:relative;z-index:1}
   text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.4rem}
 .bonus p{font-size:0.8rem;color:#706070;line-height:1.5;font-weight:300}
 
+/* ── 48H DELIVERY ── */
+.delivery-section{background:var(--card)}
+.h48{color:var(--rose-lt);font-style:italic}
+.delivery-lead{font-size:1.05rem;font-weight:300;color:#B09098;line-height:1.8;max-width:680px;margin-bottom:2.5rem}
+.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:2.5rem}
+.delivery-card{background:var(--bg);padding:1.6rem;transition:background .3s,transform .3s}
+.delivery-card:hover{background:#100D11;transform:translateY(-3px)}
+.delivery-icon{font-size:1.8rem;margin-bottom:0.75rem;animation:float 6s ease-in-out infinite}
+.delivery-card h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:0.5rem}
+.delivery-card p{font-size:0.83rem;color:#706070;line-height:1.6;font-weight:300}
+
+/* timeline */
+.delivery-timeline{display:flex;align-items:center;gap:0;background:var(--bg);border:1px solid var(--border);padding:1.8rem 2rem}
+.timeline-step{display:flex;align-items:center;gap:1rem;flex:1}
+.timeline-dot{width:36px;height:36px;border-radius:50%;background:var(--border);
+  font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border)}
+.timeline-dot.active{background:var(--rose);color:white;border-color:var(--rose);
+  animation:heartbeat 4s ease-in-out infinite;box-shadow:0 0 18px rgba(192,24,76,0.4)}
+.timeline-text{display:flex;flex-direction:column;gap:0.2rem}
+.timeline-text strong{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;
+  text-transform:uppercase;letter-spacing:1px;color:var(--white)}
+.timeline-text span{font-size:0.8rem;color:var(--muted);font-weight:300;line-height:1.4}
+.timeline-line{flex:0 0 40px;height:1px;background:var(--border);margin:0 0.5rem}
+
+@media(max-width:650px){
+  .delivery-grid{grid-template-columns:1fr}
+  .delivery-timeline{flex-direction:column;align-items:flex-start;gap:1rem}
+  .timeline-line{width:1px;height:24px;margin:0 17px}
+}
+
 /* ── TESTIMONIAL STRIP ── */
 .testi-strip{padding:2rem;background:var(--card);border-bottom:1px solid var(--border);
   display:flex;align-items:center;gap:2rem;overflow:hidden}
@@ -402,6 +434,74 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
       <p>O que cada um pode usar para potencializar os resultados de forma segura e eficaz</p>
     </div>
   </div>
+</section>
+
+<!-- 48H DELIVERY -->
+<section class="section delivery-section" data-reveal>
+  <div class="section-tag">Simples, rápido e sem complicação</div>
+  <div class="section-title">Tudo pronto em até <span class="h48">48h</span></div>
+
+  <div class="delivery-hero">
+    <p class="delivery-lead">Nada de agenda lotada, sala de espera ou deslocamento.<br>Vocês contratam hoje — em até 48 horas os protocolos dos dois já estão na palma da mão.</p>
+  </div>
+
+  <div class="delivery-grid">
+
+    <div class="delivery-card">
+      <div class="delivery-icon">🚗</div>
+      <h4>Sem deslocamento</h4>
+      <p>Chega de pegar trânsito, gastar gasolina ou reorganizar a agenda para ir até uma clínica. A consultoria acontece de onde vocês estiverem.</p>
+    </div>
+
+    <div class="delivery-card">
+      <div class="delivery-icon">📅</div>
+      <h4>Sem esperar vaga</h4>
+      <p>Consultórios tradicionais têm fila de semanas. Aqui vocês entram no processo imediatamente — sem espera, sem burocracia.</p>
+    </div>
+
+    <div class="delivery-card">
+      <div class="delivery-icon">⚡</div>
+      <h4>Entrega em 48 horas</h4>
+      <p>Após o preenchimento do anamnese, os planos de nutrição e orientações de hábitos dos dois são entregues em até 48h úteis.</p>
+    </div>
+
+    <div class="delivery-card">
+      <div class="delivery-icon">📱</div>
+      <h4>Tudo no celular</h4>
+      <p>Planos, feedbacks, ajustes e suporte chegam direto no WhatsApp de vocês. Acompanham a rotina — não o contrário.</p>
+    </div>
+
+    <div class="delivery-card">
+      <div class="delivery-icon">🔄</div>
+      <h4>Ajustes contínuos</h4>
+      <p>Ao longo do acompanhamento, qualquer atualização no protocolo também é entregue rapidamente — sem precisar remarcar nada.</p>
+    </div>
+
+    <div class="delivery-card">
+      <div class="delivery-icon">💑</div>
+      <h4>Para os dois, ao mesmo tempo</h4>
+      <p>Os protocolos de cada um são preparados juntos e entregues no mesmo prazo. Vocês começam no mesmo momento, evoluem lado a lado.</p>
+    </div>
+
+  </div>
+
+  <div class="delivery-timeline">
+    <div class="timeline-step">
+      <div class="timeline-dot">1</div>
+      <div class="timeline-text"><strong>Hoje</strong><span>Vocês contratam e preenchem o formulário de anamnese</span></div>
+    </div>
+    <div class="timeline-line"></div>
+    <div class="timeline-step">
+      <div class="timeline-dot">2</div>
+      <div class="timeline-text"><strong>Em até 24h</strong><span>O nutricionista analisa os dados e monta os protocolos individuais</span></div>
+    </div>
+    <div class="timeline-line"></div>
+    <div class="timeline-step">
+      <div class="timeline-dot active">3</div>
+      <div class="timeline-text"><strong>Em até 48h</strong><span>Planos entregues no WhatsApp. Vocês já começam na mesma semana</span></div>
+    </div>
+  </div>
+
 </section>
 
 <!-- CTA FINAL -->
