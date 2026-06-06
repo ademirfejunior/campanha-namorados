@@ -156,6 +156,37 @@ body>*:not(#particles){position:relative;z-index:1}
   text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.4rem}
 .bonus p{font-size:0.8rem;color:#706070;line-height:1.5;font-weight:300}
 
+/* ── ANCORAGEM DE VALOR ── */
+.valor-section{background:var(--bg)}
+.valor-lead{font-size:1rem;font-weight:300;color:#B09098;line-height:1.8;max-width:640px;margin-bottom:2.5rem}
+.valor-lead strong{color:var(--white)}
+
+.valor-table{width:100%;border-collapse:collapse;margin-bottom:2rem}
+.valor-table th{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:0.6rem 1rem;
+  border-bottom:1px solid var(--border);text-align:left}
+.valor-table th:not(:first-child){text-align:center}
+.valor-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--border);
+  font-size:0.88rem;color:#907888;font-weight:300}
+.valor-table td:not(:first-child){text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem}
+.valor-table .prof-name{color:var(--white);font-weight:500;font-size:0.9rem}
+.valor-table .row-total td{color:var(--white);font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:1.05rem;border-top:1px solid var(--rose);border-bottom:1px solid var(--rose);
+  background:rgba(192,24,76,0.06);padding:1rem}
+.valor-table .row-total .prof-name{color:var(--rose-lt);font-size:1rem;text-transform:uppercase;letter-spacing:1px}
+.valor-table .row-duo td{background:linear-gradient(135deg,#1A0810,#220F18);
+  font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem}
+.valor-table .row-duo .prof-name{color:var(--rose-lt);font-size:1rem;text-transform:uppercase;letter-spacing:1px}
+.valor-table .row-duo td:not(:first-child){color:var(--white)}
+.valor-tag-preco{display:inline-block;background:var(--rose);color:white;
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.85rem;
+  letter-spacing:1px;padding:0.25rem 0.7rem;text-transform:uppercase}
+
+.valor-copy{background:linear-gradient(135deg,#180A10,#1E0F16);border:1px solid var(--border);
+  border-left:4px solid var(--rose);padding:1.5rem 1.8rem;margin-top:0.5rem}
+.valor-copy p{font-size:0.92rem;color:#B09098;line-height:1.75;font-weight:300}
+.valor-copy p strong{color:var(--white)}
+
 /* ── 48H DELIVERY ── */
 .delivery-section{background:var(--card)}
 .h48{color:var(--rose-lt);font-style:italic}
@@ -435,7 +466,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
   <div class="two-col">
     <div class="col-block">
       <h3>Suporte direto</h3>
-      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Equipe de nutrição e personal</strong><span>Resposta garantida em até 24h úteis para dúvidas de alimentação e treino</span></div></div>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Equipe de nutrição e treinador especialista</strong><span>Resposta garantida em até 24h úteis para dúvidas de alimentação e treino</span></div></div>
       <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Situações fora da rotina</strong><span>Janta fora, viagem, semana corrida — orientação real para não perder o foco</span></div></div>
       <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Ajustes rápidos no plano</strong><span>Modificação de treino ou alimentação sempre que a vida mudar o combinado</span></div></div>
     </div>
@@ -477,6 +508,50 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
       <h4>Guia de Suplementação</h4>
       <p>O que cada um pode usar para potencializar os resultados de forma segura e eficaz</p>
     </div>
+  </div>
+</section>
+
+<!-- ANCORAGEM DE VALOR -->
+<section class="section valor-section" data-reveal>
+  <div class="section-tag">Quanto vale esse investimento</div>
+  <div class="section-title">O que vocês teriam que pagar<br>contratando separado</div>
+
+  <p class="valor-lead">Nutricionista e treinador especialista trabalhando juntos, para dois — isso normalmente exige <strong>duas agendas, dois contratos e um custo bem alto.</strong> Veja o que isso custaria no mercado:</p>
+
+  <table class="valor-table">
+    <thead>
+      <tr>
+        <th>Profissional</th>
+        <th>Por pessoa / mês</th>
+        <th>Total do casal / mês</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="prof-name">Nutricionista particular</td>
+        <td>R$ 600</td>
+        <td>R$ 1.200</td>
+      </tr>
+      <tr>
+        <td class="prof-name">Treinador Especialista</td>
+        <td>R$ 300</td>
+        <td>R$ 600</td>
+      </tr>
+      <tr class="row-total">
+        <td class="prof-name">Total contratando separado</td>
+        <td>R$ 900 / mês</td>
+        <td>R$ 1.800 / mês</td>
+      </tr>
+      <tr class="row-duo">
+        <td class="prof-name">Duo Saúde — tudo integrado</td>
+        <td><span class="valor-tag-preco">por muito menos</span></td>
+        <td><span class="valor-tag-preco">que a metade disso</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="valor-copy">
+    <p>A maioria dos casais até tenta. Um vai ao nutricionista, o outro contrata um treinador. <strong>Os protocolos não conversam, a motivação cai, e em 30 dias um dos dois desiste.</strong> No Duo Saúde, nutrição e treino são desenhados juntos — para a rotina de vocês dois — com suporte real de quem entende do assunto. Chama a gente no WhatsApp e descobre o valor da condição especial de Dia dos Namorados.</p>
   </div>
 </section>
 
@@ -537,7 +612,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
     <div class="timeline-line"></div>
     <div class="timeline-step">
       <div class="timeline-dot">2</div>
-      <div class="timeline-text"><strong>Em até 24h</strong><span>Nutricionista e personal analisam os dados e montam os protocolos individuais</span></div>
+      <div class="timeline-text"><strong>Em até 24h</strong><span>Nutricionista e treinador especialista analisam os dados e montam os protocolos individuais</span></div>
     </div>
     <div class="timeline-line"></div>
     <div class="timeline-step">
