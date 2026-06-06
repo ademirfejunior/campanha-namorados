@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Duo Saúde · Se cuidar juntos é o maior ato de amor</title>
 
 <!-- Open Graph / WhatsApp / redes sociais -->
@@ -53,7 +53,7 @@ body>*:not(#particles){position:relative;z-index:1}
   font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;
   padding:0.55rem 1.3rem;border:none;cursor:pointer;
   animation:heartbeat 4.5s ease-in-out infinite;transition:transform .15s;text-decoration:none;display:inline-block}
-.nav-cta:hover{animation:none;transform:scale(1.04)}
+.nav-cta:hover{animation:none;opacity:0.85}
 
 /* ── HERO ── */
 .hero{padding:4rem 2rem 3rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
@@ -217,7 +217,7 @@ body>*:not(#particles){position:relative;z-index:1}
   font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;
   padding:1rem 2rem;text-decoration:none;display:inline-block;
   animation:heartbeat 4s ease-in-out infinite;transition:transform .15s;white-space:nowrap}
-.desconto-right a:hover{animation:none;transform:scale(1.03)}
+.desconto-right a:hover{animation:none;opacity:0.85}
 
 @media(max-width:650px){
   .desconto-strip{flex-direction:column;text-align:center}
@@ -248,7 +248,7 @@ body>*:not(#particles){position:relative;z-index:1}
   font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;
   text-decoration:none;display:inline-block;animation:heartbeat 5s ease-in-out infinite;transition:transform .15s}
 .btn-primary{background:var(--rose);color:white;font-size:13px;padding:1rem 2rem;width:100%}
-.btn-primary:hover,.btn-white:hover{animation:none;transform:scale(1.03)}
+.btn-primary:hover,.btn-white:hover{animation:none;opacity:0.85}
 .btn-white{background:white;color:var(--rose);font-size:15px;padding:1.1rem 2.8rem}
 .btn-white span{margin-right:0.4rem}
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);
@@ -267,11 +267,11 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
 
 /* ── KEYFRAMES ── */
 @keyframes heartbeat{
-  0%,100%{transform:scale(1)}
-  14%{transform:scale(1.05)}
-  28%{transform:scale(1)}
-  42%{transform:scale(1.03)}
-  56%{transform:scale(1)}
+  0%,100%{opacity:1}
+  14%{opacity:0.5}
+  28%{opacity:1}
+  42%{opacity:0.65}
+  56%{opacity:1}
 }
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
@@ -349,7 +349,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
       </g>
     </svg>
     <!-- coração entre eles -->
-    <span style="font-size:14px;color:#FF6B9D;animation:heartbeat 1.4s ease-in-out infinite;display:inline-block;align-self:center;margin-bottom:14px">♥</span>
+    <span style="font-size:14px;color:#FF6B9D;animation:heartbeat 4s ease-in-out infinite;display:inline-block;align-self:center;margin-bottom:14px">♥</span>
     <!-- Figura 2 (ele) -->
     <svg class="fig2" viewBox="0 0 60 82" width="48" height="65" fill="none" overflow="visible">
       <circle cx="44" cy="8" r="7" fill="white"/>
