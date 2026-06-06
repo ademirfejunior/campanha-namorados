@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duo Saúde · Se cuidar juntos é o maior ato de amor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0D0A0E;
+  --rose:#C0184C;
+  --rose-dark:#880D38;
+  --rose-lt:#FF6B9D;
+  --white:#FDF4F7;
+  --card:#180F14;
+  --card2:#1E1118;
+  --muted:#8A7882;
+  --border:#2A1820;
+  --radius:0px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+
+/* ── CANVAS ── */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.4}
+body>*:not(#particles){position:relative;z-index:1}
+
+/* ── NAV ── */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;
+  border-bottom:1px solid var(--border);position:sticky;top:0;
+  background:rgba(13,10,14,0.96);backdrop-filter:blur(10px);z-index:100}
+.logo{display:flex;align-items:center;gap:0.7rem}
+.logo-hearts{font-size:18px;animation:heartbeat 2s ease-in-out infinite;display:inline-block}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--white)}
+.logo-text em{color:var(--rose-lt);font-style:normal}
+.nav-cta{background:var(--rose);color:white;font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  padding:0.55rem 1.3rem;border:none;cursor:pointer;
+  animation:heartbeat 2.2s ease-in-out infinite;transition:transform .15s;text-decoration:none;display:inline-block}
+.nav-cta:hover{animation:none;transform:scale(1.04)}
+
+/* ── HERO ── */
+.hero{padding:4rem 2rem 3rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(192,24,76,0.12) 0%,transparent 70%);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:0.5rem;font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--rose-lt);font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;margin-bottom:1.2rem}
+.eyebrow::before{content:'♥';font-size:12px;animation:heartbeat 1.6s ease-in-out infinite}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(2.8rem,7vw,6rem);line-height:1;letter-spacing:-1px;margin-bottom:1.8rem}
+.hero h1 em{color:var(--rose-lt);font-style:italic;display:block}
+.hero h1 span{display:block;-webkit-text-stroke:1px var(--white);color:transparent}
+.hero-body{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:end}
+.hero-sub{font-size:1rem;font-weight:300;color:#B09098;line-height:1.75}
+.hero-sub strong{color:var(--white);font-weight:500}
+.hero-right{display:flex;flex-direction:column;gap:1rem}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.stat{background:var(--bg);padding:1.1rem;text-align:center}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.9rem;color:var(--white);line-height:1}
+.stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:0.25rem}
+
+/* ── COUPLE TRACK ── */
+.couple-track{position:relative;height:70px;overflow:visible;background:transparent;border-bottom:3px solid var(--rose);z-index:2}
+.runner-duo{position:absolute;bottom:0;left:-120px;display:flex;align-items:flex-end;gap:6px;
+  animation:duo-across 8s linear infinite, duo-bob 0.32s ease-in-out infinite alternate}
+@keyframes duo-across{0%{left:-120px}100%{left:calc(100% + 120px)}}
+@keyframes duo-bob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+
+/* figura 1 */
+.fig1 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.3s ease-in-out infinite alternate}
+.fig1 .rleg-back {transform-origin:18px 38px;animation:rlb1 0.3s ease-in-out infinite alternate}
+.fig1 .rarm-front{transform-origin:32px 15px;animation:raf1 0.3s ease-in-out infinite alternate}
+.fig1 .rarm-back {transform-origin:32px 15px;animation:rab1 0.3s ease-in-out infinite alternate}
+/* figura 2 — fase oposta para parecer que correm sincronizados mas diferentes */
+.fig2 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.3s ease-in-out infinite alternate-reverse}
+.fig2 .rleg-back {transform-origin:18px 38px;animation:rlb1 0.3s ease-in-out infinite alternate-reverse}
+.fig2 .rarm-front{transform-origin:32px 15px;animation:raf1 0.3s ease-in-out infinite alternate-reverse}
+.fig2 .rarm-back {transform-origin:32px 15px;animation:rab1 0.3s ease-in-out infinite alternate-reverse}
+
+@keyframes rlf1{from{transform:rotate(-28deg)}to{transform:rotate(26deg)}}
+@keyframes rlb1{from{transform:rotate(26deg)} to{transform:rotate(-28deg)}}
+@keyframes raf1{from{transform:rotate(24deg)} to{transform:rotate(-20deg)}}
+@keyframes rab1{from{transform:rotate(-20deg)}to{transform:rotate(24deg)}}
+
+/* ── PROMISE ── */
+.promise{padding:2.5rem 2rem;background:var(--rose);border-bottom:1px solid var(--rose-dark);position:relative;overflow:hidden}
+.promise::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);
+  animation:shimmer 3.5s ease-in-out infinite;pointer-events:none}
+.promise p{font-family:'Barlow Condensed',sans-serif;font-weight:800;
+  font-size:clamp(1.4rem,3.5vw,2.2rem);text-transform:uppercase;line-height:1.05;
+  letter-spacing:0.5px;color:white;max-width:860px;position:relative;z-index:1}
+.promise p span{opacity:0.55}
+
+/* ── SECTIONS ── */
+.section{padding:3rem 2rem;border-bottom:1px solid var(--border)}
+.section-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;
+  letter-spacing:3px;text-transform:uppercase;color:var(--rose-lt);margin-bottom:0.5rem;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  animation:float 3.5s ease-in-out infinite}
+.section-tag::before{content:'♥';font-size:11px}
+.section-title{font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(1.8rem,4vw,2.8rem);line-height:1;margin-bottom:1.8rem;
+  animation:float 4s ease-in-out infinite 0.3s}
+
+/* ── PILLARS ── */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.pillar{background:var(--card);padding:1.75rem;transition:background .3s,transform .3s}
+.pillar:hover{background:var(--card2);transform:translateY(-4px)}
+.pillar-icon{font-size:2rem;margin-bottom:0.75rem;animation:heartbeat 2.5s ease-in-out infinite}
+.pillar h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;color:var(--rose-lt)}
+.pillar ul{list-style:none}
+.pillar ul li{font-size:0.85rem;color:#907888;padding:0.35rem 0;border-bottom:1px solid #1A1015;
+  display:flex;gap:0.5rem;line-height:1.4;font-weight:300}
+.pillar ul li:last-child{border-bottom:none}
+.pillar ul li::before{content:'♥';color:var(--rose);font-size:0.65rem;flex-shrink:0;margin-top:3px}
+
+/* ── TWO COL ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.col-block{background:var(--card);padding:1.75rem}
+.col-block h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem;padding-bottom:0.75rem;
+  border-bottom:1px solid var(--border);color:var(--rose-lt)}
+.item-row{display:flex;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid #160F12;align-items:flex-start}
+.item-row:last-child{border-bottom:none}
+.item-dot{font-size:10px;flex-shrink:0;margin-top:3px;animation:heartbeat 1.8s ease-in-out infinite}
+.item-text strong{display:block;font-size:0.88rem;color:var(--white);font-weight:500;margin-bottom:0.1rem}
+.item-text span{font-size:0.8rem;color:#706070;font-weight:300;line-height:1.45}
+
+/* ── BONUSES ── */
+.bonuses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:1.5rem}
+.bonus{background:var(--card);padding:1.4rem;transition:background .25s,transform .25s,box-shadow .25s;cursor:default}
+.bonus:hover{background:var(--card2);transform:translateY(-5px);box-shadow:0 10px 28px rgba(192,24,76,0.18)}
+.bonus-icon{font-size:1.6rem;margin-bottom:0.5rem;display:block;animation:heartbeat 2.8s ease-in-out infinite}
+.bonus-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--rose-lt);
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;margin-bottom:0.4rem}
+.bonus h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;
+  text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.4rem}
+.bonus p{font-size:0.8rem;color:#706070;line-height:1.5;font-weight:300}
+
+/* ── TESTIMONIAL STRIP ── */
+.testi-strip{padding:2rem;background:var(--card);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:2rem;overflow:hidden}
+.testi-strip blockquote{font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1rem,2vw,1.3rem);color:var(--rose-lt);line-height:1.5;flex:1;
+  animation:float 5s ease-in-out infinite}
+.testi-strip blockquote cite{display:block;font-family:'Barlow',sans-serif;font-style:normal;
+  font-size:0.78rem;color:var(--muted);margin-top:0.5rem;letter-spacing:1px}
+.hearts-big{font-size:3rem;animation:heartbeat 1.5s ease-in-out infinite;flex-shrink:0}
+
+/* ── CTA ── */
+.cta-section{padding:4rem 2rem;background:var(--rose);text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,0.1) 0%,transparent 60%);pointer-events:none}
+.cta-section h2{font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(2rem,6vw,4.5rem);line-height:0.95;letter-spacing:-0.5px;color:white;
+  margin-bottom:1rem;animation:float 4s ease-in-out infinite}
+.cta-section p{font-size:1rem;color:rgba(255,255,255,0.85);max-width:460px;
+  margin:0 auto 2rem;font-weight:300;line-height:1.65;position:relative;z-index:1}
+.cta-section .eyebrow{color:rgba(255,255,255,0.7);margin-bottom:1rem;justify-content:center}
+.btn-primary,.btn-white{position:relative;overflow:hidden;cursor:pointer;border:none;
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;display:inline-block;animation:heartbeat 2s ease-in-out infinite;transition:transform .15s}
+.btn-primary{background:var(--rose);color:white;font-size:13px;padding:1rem 2rem;width:100%}
+.btn-primary:hover,.btn-white:hover{animation:none;transform:scale(1.03)}
+.btn-white{background:white;color:var(--rose);font-size:15px;padding:1.1rem 2.8rem}
+.btn-white span{margin-right:0.4rem}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);
+  transform:scale(0);animation:ripple-out .6s linear;pointer-events:none}
+
+/* ── FOOTER ── */
+footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;
+  letter-spacing:2px;text-transform:uppercase;color:#3A2830}
+.footer-logo em{color:var(--rose);font-style:normal}
+.footer-copy{font-size:11px;color:#2A1820;font-weight:300;letter-spacing:1px}
+
+/* ── SCROLL REVEAL ── */
+[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+[data-reveal].visible{opacity:1;transform:translateY(0)}
+
+/* ── KEYFRAMES ── */
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  14%{transform:scale(1.12)}
+  28%{transform:scale(1)}
+  42%{transform:scale(1.07)}
+  56%{transform:scale(1)}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+@keyframes ripple-out{to{transform:scale(4);opacity:0}}
+
+@media(max-width:650px){
+  .hero-body,.pillars,.two-col,.bonuses-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+  .testi-strip{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">
+    <span class="logo-hearts">♥♥</span>
+    <span class="logo-text">Duo <em>Saúde</em></span>
+  </div>
+  <a class="nav-cta" href="https://wa.me/5511916963672?text=Quero%20aproveitar%20a%20condi%C3%A7%C3%A3o%20de%20acompanhamento%20de%20Dia%20dos%20Namorados" target="_blank">Quero começar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" data-reveal>
+  <div class="eyebrow">Consultoria de nutrição e bem-estar para casais</div>
+  <h1>
+    <span>Se cuidar juntos</span>
+    <em>é o maior</em>
+    ato de amor.
+  </h1>
+  <div class="hero-body">
+    <p class="hero-sub">Um time completo ao lado de vocês dois, <strong>do prato à transformação.</strong> Nutrição, emagrecimento e hábitos saudáveis construídos juntos — porque evoluir a dois é mais leve, mais divertido e muito mais poderoso.</p>
+    <div class="hero-right">
+      <a class="btn-primary" href="https://wa.me/5511916963672?text=Quero%20aproveitar%20a%20condi%C3%A7%C3%A3o%20de%20acompanhamento%20de%20Dia%20dos%20Namorados" target="_blank">Quero minha consultoria duo</a>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num" id="counter-casais" data-count="1500" data-suffix="+" data-dur="3000">1.500+</div><div class="stat-label">Pacientes</div></div>
+        <div class="stat"><div class="stat-num" data-count="9" data-suffix=" anos">9 anos</div><div class="stat-label">Experiência</div></div>
+        <div class="stat"><div class="stat-num" data-count="100" data-suffix="%">100%</div><div class="stat-label">Personalizado</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASAL CORRENDO -->
+<div class="couple-track">
+  <div class="runner-duo">
+    <!-- Figura 1 (ela) -->
+    <svg class="fig1" viewBox="0 0 52 70" width="42" height="58" fill="none" overflow="visible">
+      <circle cx="36" cy="7" r="6" fill="#FF6B9D"/>
+      <path d="M33 13 Q28 22 18 38" stroke="#FF6B9D" stroke-width="6" stroke-linecap="round"/>
+      <ellipse cx="30" cy="17" rx="8" ry="4" fill="#FF6B9D" transform="rotate(-18 30 17)"/>
+      <g class="rarm-back"><path d="M32 15 L20 10 L13 19" stroke="#FF6B9D" stroke-width="4" stroke-linecap="round" fill="none"/></g>
+      <g class="rarm-front"><path d="M32 15 L42 23 L47 34" stroke="#FF6B9D" stroke-width="4" stroke-linecap="round" fill="none"/></g>
+      <ellipse cx="18" cy="38" rx="6" ry="3.5" fill="#FF6B9D"/>
+      <g class="rleg-front">
+        <line x1="18" y1="38" x2="30" y2="54" stroke="#FF6B9D" stroke-width="5" stroke-linecap="round"/>
+        <line x1="30" y1="54" x2="38" y2="65" stroke="#FF6B9D" stroke-width="4" stroke-linecap="round"/>
+        <ellipse cx="40" cy="66" rx="5" ry="2.5" fill="#FF6B9D"/>
+      </g>
+      <g class="rleg-back">
+        <line x1="18" y1="38" x2="7"  y2="52" stroke="#FF6B9D" stroke-width="5" stroke-linecap="round"/>
+        <line x1="7"  y1="52" x2="2"  y2="64" stroke="#FF6B9D" stroke-width="4" stroke-linecap="round"/>
+        <ellipse cx="2" cy="65" rx="5" ry="2.5" fill="#FF6B9D"/>
+      </g>
+    </svg>
+    <!-- coração entre eles -->
+    <span style="font-size:14px;color:#FF6B9D;animation:heartbeat 1.4s ease-in-out infinite;display:inline-block;align-self:center;margin-bottom:14px">♥</span>
+    <!-- Figura 2 (ele) -->
+    <svg class="fig2" viewBox="0 0 60 82" width="48" height="65" fill="none" overflow="visible">
+      <circle cx="44" cy="8" r="7" fill="white"/>
+      <path d="M40 15 Q34 26 22 44" stroke="white" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="36" cy="20" rx="10" ry="5" fill="white" transform="rotate(-20 36 20)"/>
+      <g class="rarm-back"><path d="M38 18 L24 12 L16 22" stroke="white" stroke-width="4.5" stroke-linecap="round" fill="none"/></g>
+      <g class="rarm-front"><path d="M38 18 L50 28 L56 42" stroke="white" stroke-width="4.5" stroke-linecap="round" fill="none"/></g>
+      <ellipse cx="22" cy="44" rx="7" ry="4" fill="white"/>
+      <g class="rleg-front">
+        <line x1="22" y1="44" x2="36" y2="62" stroke="white" stroke-width="6" stroke-linecap="round"/>
+        <line x1="36" y1="62" x2="46" y2="76" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <ellipse cx="48" cy="77" rx="6" ry="3" fill="white"/>
+      </g>
+      <g class="rleg-back">
+        <line x1="22" y1="44" x2="10" y2="60" stroke="white" stroke-width="6" stroke-linecap="round"/>
+        <line x1="10" y1="60" x2="4"  y2="74" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <ellipse cx="4" cy="75" rx="6" ry="3" fill="white"/>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<!-- PROMISE -->
+<div class="promise" data-reveal>
+  <p>Saúde, corpo e bem-estar — juntos vocês chegam mais longe. <span>Porque o maior presente que você pode dar a quem ama é cuidar de você também.</span></p>
+</div>
+
+<!-- O QUE VOCÊS RECEBEM -->
+<section class="section" data-reveal>
+  <div class="section-tag">Protocolo duo completo</div>
+  <div class="section-title">O que vocês recebem</div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">🥗</div>
+      <h3>Nutrição Individual</h3>
+      <ul>
+        <li>Plano alimentar personalizado para cada um</li>
+        <li>Estratégia de emagrecimento saudável e sustentável</li>
+        <li>Protocolo de refeições que cabem na rotina a dois</li>
+        <li>Suplementação individualizada com base nos objetivos</li>
+        <li>Ajustes semanais conforme evolução de cada um</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">💪</div>
+      <h3>Hábitos & Movimento</h3>
+      <ul>
+        <li>Orientação de atividade física compatível com a rotina</li>
+        <li>Exercícios que vocês podem fazer juntos ou separados</li>
+        <li>Estratégias de sono, hidratação e recuperação</li>
+        <li>Metas semanais gamificadas para engajamento em casal</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">📈</div>
+      <h3>Evolução Contínua</h3>
+      <ul>
+        <li>Check-in semanal para os dois com feedback real</li>
+        <li>Monitoramento de composição corporal contínuo</li>
+        <li>Dossiê de evolução com comparativo de resultados</li>
+        <li>Análise de exames e ajuste de protocolo</li>
+        <li>Relatório mensal com o progresso do casal</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<div class="testi-strip" data-reveal>
+  <div class="hearts-big">♥</div>
+  <blockquote>
+    "Começamos juntos sem saber muito o que esperar. Três meses depois, os dois emagrecemos, dormimos melhor e nos sentimos mais dispostos — mas o maior ganho foi fazer isso como um time."
+    <cite>— Casal de pacientes, São Paulo</cite>
+  </blockquote>
+  <div class="hearts-big">♥</div>
+</div>
+
+<!-- SUPORTE -->
+<section class="section" data-reveal>
+  <div class="section-tag">Suporte e acompanhamento</div>
+  <div class="section-title">Time completo no WhatsApp de vocês</div>
+  <div class="two-col">
+    <div class="col-block">
+      <h3>Suporte direto</h3>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Equipe de nutrição dedicada</strong><span>Resposta garantida em até 24h úteis para qualquer dúvida</span></div></div>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Situações fora da rotina</strong><span>Janta fora, viagem, fim de semana — orientação real para não perder o foco</span></div></div>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Ajustes rápidos</strong><span>Modificação de plano sempre que a vida mudar o combinado</span></div></div>
+    </div>
+    <div class="col-block">
+      <h3>Feedback semanal</h3>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>O que funcionou na semana</strong><span>Reconhecimento dos acertos dos dois para manter o ritmo</span></div></div>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>O que ajustar</strong><span>Correção de rota antes que vire hábito ruim</span></div></div>
+      <div class="item-row"><div class="item-dot">♥</div><div class="item-text"><strong>Próximos passos do casal</strong><span>Direcionamento claro e motivador para a semana seguinte</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section class="section" data-reveal>
+  <div class="section-tag">Inclusos na consultoria duo</div>
+  <div class="section-title">Presentes para os dois</div>
+  <div class="bonuses-grid">
+    <div class="bonus">
+      <span class="bonus-icon">🍽️</span>
+      <div class="bonus-tag">Bônus 01</div>
+      <h4>Cardápio Romântico</h4>
+      <p>Receitas saudáveis pensadas para preparar e comer juntos — sem abrir mão do prazer</p>
+    </div>
+    <div class="bonus">
+      <span class="bonus-icon">📅</span>
+      <div class="bonus-tag">Bônus 02</div>
+      <h4>Desafio 30 Dias Duo</h4>
+      <p>Um desafio diário de hábitos para os dois completarem juntos e comemorarem cada etapa</p>
+    </div>
+    <div class="bonus">
+      <span class="bonus-icon">😴</span>
+      <div class="bonus-tag">Bônus 03</div>
+      <h4>Guia do Sono Saudável</h4>
+      <p>Protocolo de rotina noturna para melhorar o sono dos dois e acordar com mais energia</p>
+    </div>
+    <div class="bonus">
+      <span class="bonus-icon">💊</span>
+      <div class="bonus-tag">Bônus 04</div>
+      <h4>Guia de Suplementação</h4>
+      <p>O que cada um pode usar para potencializar os resultados de forma segura e eficaz</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" data-reveal>
+  <div class="eyebrow">Oferta especial · Dia dos Namorados</div>
+  <h2>Cuidem de vocês.<br><em style="font-style:italic">Juntos.</em></h2>
+  <p>Uma consultoria duo completa — nutrição, hábitos e acompanhamento real para os dois evoluírem lado a lado.</p>
+  <a class="btn-white" href="https://wa.me/5511916963672?text=Quero%20aproveitar%20a%20condi%C3%A7%C3%A3o%20de%20acompanhamento%20de%20Dia%20dos%20Namorados" target="_blank">
+    <span>♥</span> Quero começar com meu par
+  </a>
+</section>
+
+<footer>
+  <div class="footer-logo">Duo <em>Saúde</em></div>
+  <div class="footer-copy">Consultoria de Nutrição e Bem-Estar para Casais · Brasil</div>
+</footer>
+
+<script>
+/* ── PARTICLES ── */
+(function(){
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, dots = [];
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  for(let i=0;i<60;i++){
+    dots.push({x:Math.random()*2000,y:Math.random()*2000,r:Math.random()*1.5+0.3,
+      vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,a:Math.random(),
+      heart:Math.random()>.6});
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    dots.forEach(d=>{
+      d.x+=d.vx; d.y+=d.vy; d.a+=0.007;
+      if(d.x<0||d.x>W) d.vx*=-1;
+      if(d.y<0||d.y>H) d.vy*=-1;
+      const alpha=(Math.sin(d.a)*.5+.5)*.5+.1;
+      if(d.heart){
+        ctx.font=`${d.r*8}px serif`;
+        ctx.fillStyle=`rgba(192,24,76,${alpha})`;
+        ctx.fillText('♥',d.x,d.y);
+      } else {
+        ctx.beginPath();
+        ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,107,157,${alpha})`;
+        ctx.fill();
+      }
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ── SCROLL REVEAL ── */
+const revealObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);} });
+},{threshold:0.1});
+document.querySelectorAll('[data-reveal]').forEach(el=>revealObs.observe(el));
+
+/* ── COUNTER ── */
+function animateCount(el, onDone){
+  const target = parseInt(el.dataset.count);
+  const suffix = el.dataset.suffix||'';
+  const dur = parseInt(el.dataset.dur)||1400;
+  const start = performance.now();
+  function step(now){
+    const p = Math.min((now-start)/dur,1);
+    const ease = 1-Math.pow(1-p,3);
+    const val = Math.round(ease*target);
+    el.textContent = val>=1000 ? val.toLocaleString('pt-BR')+suffix : val+suffix;
+    if(p<1) requestAnimationFrame(step);
+    else if(onDone) onDone();
+  }
+  requestAnimationFrame(step);
+}
+function loopCounter(el){ animateCount(el,()=>setTimeout(()=>loopCounter(el),5000)); }
+
+const cntObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting && e.target.dataset.count){
+      if(e.target.id==='counter-casais') loopCounter(e.target);
+      else animateCount(e.target);
+      cntObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+
+/* ── RIPPLE ── */
+document.querySelectorAll('button, a.btn-primary, a.btn-white, a.nav-cta').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    const r=document.createElement('span');
+    r.className='ripple';
+    const rect=btn.getBoundingClientRect();
+    const size=Math.max(rect.width,rect.height);
+    r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+    btn.appendChild(r);
+    r.addEventListener('animationend',()=>r.remove());
+  });
+});
+
+/* ── STAGGER ITEM-DOT ── */
+document.querySelectorAll('.item-dot').forEach((d,i)=>{ d.style.animationDelay=`${i*0.3}s`; });
+document.querySelectorAll('.pillar-icon').forEach((d,i)=>{ d.style.animationDelay=`${i*0.5}s`; });
+</script>
+</body>
+</html>
