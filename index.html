@@ -77,11 +77,18 @@ body>*:not(#particles){position:relative;z-index:1}
 .stat-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:0.25rem}
 
 /* ── COUPLE TRACK ── */
-.couple-track{position:relative;height:70px;overflow:visible;background:transparent;border-bottom:3px solid var(--rose);z-index:2}
-.runner-duo{position:absolute;bottom:0;left:-120px;display:flex;align-items:flex-end;gap:6px;
+.couple-track{position:relative;height:70px;overflow:hidden;background:transparent;border-bottom:3px solid var(--rose);z-index:2}
+.runner-duo{position:absolute;bottom:0;left:0;display:flex;align-items:flex-end;gap:6px;
+  will-change:transform;
   animation:duo-across 10s linear infinite, duo-bob 0.45s ease-in-out infinite alternate}
-@keyframes duo-across{0%{left:-120px}100%{left:calc(100% + 120px)}}
-@keyframes duo-bob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+@keyframes duo-across{
+  0%  {transform:translateX(-140px) translateY(0)}
+  100%{transform:translateX(calc(100vw + 140px)) translateY(0)}
+}
+@keyframes duo-bob{
+  from{transform:translateY(0)}
+  to  {transform:translateY(-4px)}
+}
 
 /* figura 1 */
 .fig1 .rleg-front{transform-origin:18px 38px;animation:rlf1 0.45s ease-in-out infinite alternate}
