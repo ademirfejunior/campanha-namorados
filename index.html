@@ -78,12 +78,13 @@ body>*:not(#particles){position:relative;z-index:1}
 
 /* ── COUPLE TRACK ── */
 .couple-track{position:relative;height:70px;overflow:hidden;background:transparent;border-bottom:3px solid var(--rose);z-index:2}
-.runner-duo{position:absolute;bottom:0;left:0;display:flex;align-items:flex-end;gap:6px;
-  will-change:transform;
-  animation:duo-across 10s linear infinite, duo-bob 0.45s ease-in-out infinite alternate}
+/* wrapper move horizontal — só translateX */
+.runner-wrap{position:absolute;bottom:0;left:0;will-change:transform;animation:duo-across 10s linear infinite}
+/* inner faz o bob vertical */
+.runner-duo{display:flex;align-items:flex-end;gap:6px;will-change:transform;animation:duo-bob 0.45s ease-in-out infinite alternate}
 @keyframes duo-across{
-  0%  {transform:translateX(-140px) translateY(0)}
-  100%{transform:translateX(calc(100vw + 140px)) translateY(0)}
+  0%  {transform:translateX(-140px)}
+  100%{transform:translateX(calc(100vw + 140px))}
 }
 @keyframes duo-bob{
   from{transform:translateY(0)}
@@ -366,6 +367,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
 
 <!-- CASAL CORRENDO -->
 <div class="couple-track">
+  <div class="runner-wrap">
   <div class="runner-duo">
     <!-- Figura 1 (ela) -->
     <svg class="fig1" viewBox="0 0 52 70" width="42" height="58" fill="none" overflow="visible">
@@ -407,6 +409,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;justi
         <ellipse cx="4" cy="75" rx="6" ry="3" fill="white"/>
       </g>
     </svg>
+  </div>
   </div>
 </div>
 
